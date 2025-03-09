@@ -11,16 +11,6 @@ pool: Self Hostes Pool
 steps:
 
 - script: |
-    # Install Ansible
-    pip3 install "ansible==2.9.17"
-  displayName: 'Install Ansible'
-  
-- script: |
-    # Install Ansible rm module
-    pip3 install ansible[azure]
-  displayName: 'Install Ansible rm module'
-
-- script: |
     ansible-playbook create-web-app.yml
   displayName: 'Run Ansible Playbook'
 
