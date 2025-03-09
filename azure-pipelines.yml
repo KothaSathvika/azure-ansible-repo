@@ -6,26 +6,14 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+pool: Self Hostes Pool
 
 steps:
-- script: |
-    pip3 install "ansible==2.9.17"
-  displayName: 'InstallAnsible'
-
-- script: |
-    pip3 install ansible[azure]
-  displayName: 'Install Ansible rm module'
 
 - script: |
     ansible-playbook create-web-app.yml
   displayName: 'Run Ansible Playbook'
-  env:
-   AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
-   AZURE_CLIENT_ID: $(AZURE_CLIENT_ID)
-   AZURE_SECRET: $(AZURE_SECRET) 
-   AZURE_TENANT: $(AZURE_TENANT)
+
 
   
 
